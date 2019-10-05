@@ -1,6 +1,7 @@
 package socket;
 
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.OutputStream;
 import java.net.ServerSocket;
 import java.net.Socket;
@@ -18,6 +19,10 @@ public class MyServer {
         String s = "hello";
         out.write(s.getBytes());
 
+        InputStream in = socket.getInputStream();
+        byte[] bs = new byte[1024];
+        in.read(bs);
+        System.out.println(new String(bs) +" 世界");
 
 
     }

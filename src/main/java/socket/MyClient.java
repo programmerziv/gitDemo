@@ -2,6 +2,7 @@ package socket;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.OutputStream;
 import java.net.Socket;
 
 public class MyClient {
@@ -13,5 +14,9 @@ public class MyClient {
         byte[] bs = new byte[1024];
         in.read(bs);
         System.out.println( new String(bs)+ " world");
+
+        OutputStream out = socket.getOutputStream();
+        String s = "你好 ";
+        out.write(s.getBytes());
     }
 }
